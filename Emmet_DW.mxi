@@ -1,0 +1,54 @@
+<macromedia-extension
+	 name="Emmet_DW"
+	 version="1.0.0"
+	 type="suite">
+
+	<author name="Ryrun" />
+
+	<products>
+		<product name="Dreamweaver" version="6" primary="true" />
+	</products>
+
+	<description>
+	<![CDATA[
+	Emmet support for Dreamwaever, yah!
+	]]>
+	</description>
+
+	<ui-access>
+	<![CDATA[
+	Cmd+, to Expand Abbreviation.
+	]]>
+	</ui-access>
+
+	<license-agreement>
+	<![CDATA[
+	Licensed under the MIT license: http://www.opensource.org/licenses/mit-license.php
+	]]>
+	</license-agreement>
+
+	<files>
+		<file source="Commands/Emmet_DW.html" destination="$Dreamweaver/configuration/Commands" />
+		<file source="Commands/Emmet_DW/emmet.js" destination="$Dreamweaver/configuration/Commands/Emmet_DW" />
+	</files>
+
+	<configuration-changes>
+		<shortcut-remove id="DWShortcuts_Main_CmdUp" />
+		<shortcut-remove id="DWShortcuts_Main_CmdDown" />
+		<shortcut-remove id="DWShortcuts_Main_ExitParagraph" />
+		<menu-remove id="DWMenu_Commands_ZenCoding_expandAbbreviationWithTab" />
+		<shortcut-insert listid="DWHTMLContext">
+			<shortcut key="Tab" command="dw.runCommand('Emmet_DW.html', 'expand_abbreviation_with_tab')" name="Expand Abbreviation with Emmet" id="DWMenu_Shortcut_Emmet_expandAbbreviationWithTab" />
+		</shortcut-insert>
+		<menu-insert prependTo="DWMenu_Commands">
+			<menu id="DWMenu_Emmet" name="_Emmet">
+			</menu>
+		</menu-insert>
+		<menu-insert insertAfter="DWMenu_Emmet">
+			<separator id="DWMenu_Emmet_separator" />
+		</menu-insert>
+		<menu-insert appendTo="DWMenu_Emmet">
+			<menuitem id="DWMenu_Commands_Emmet_expandAbbreviation" name="_Expand Abbreviation" key="Cmd+," enabled="dw.getFocus(true) == 'textView' || dw.getFocus(true) == 'html'" command="dw.runCommand('Emmet_DW.html', 'expand_abbreviation')" />
+		</menu-insert>
+	</configuration-changes>
+</macromedia-extension>

@@ -1,0 +1,17 @@
+<!-- MENU-LOCATION=NONE -->
+<html xmlns:MMString="http://www.macromedia.com/schemes/data/string/">
+<script type="text/javascript" src="Emmet_DW/emmet.js"></script>
+<script type="text/javascript">
+function receiveArguments(name) {
+	try {
+		if ( !emmet.require('editorProxy').setContext() ) {
+			alert("error");
+			return false;
+		}
+		return emmet.require('actions').run(name, emmet.require('editorProxy'));
+	} catch(e) {
+		alert( e.message + ' ' + e.fileName + '[' + e.lineNumber + ']' + e.stack );
+	} 
+}
+</script>
+
